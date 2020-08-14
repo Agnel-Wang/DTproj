@@ -3,19 +3,19 @@
         {
             "name": "Target 1",
             "includePath": [
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\uCOSII\\PORT",
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\uCOSII\\CORE",
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\uCOSII\\CONFIG",
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\Libraries\\CMSIS",
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\Libraries\\Startup",
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\Libraries\\STM32F4xx_StdPeriph_Driver\\inc",
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\USER\\INC",
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\GeneralFunction\\inc",
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\uCOSII\\PORT",
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\uCOSII\\CORE",
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\uCOSII\\CONFIG",
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\Libraries\\CMSIS",
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\Libraries\\Startup",
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\Libraries\\STM32F4xx_StdPeriph_Driver\\inc",
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\USER\\INC",
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\GeneralFunction\\inc",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include\\rw",
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\USER\\SRC",
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\GeneralFunction\\src",
-                "c:\\Users\\22734\\Desktop\\STM program\\relocation\\DTProj-F4\\Libraries\\STM32F4xx_StdPeriph_Driver\\src"
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\USER\\SRC",
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\GeneralFunction\\src",
+                "c:\\Users\\22734\\Documents\\GitHub\\DTproj\\Libraries\\STM32F4xx_StdPeriph_Driver\\src"
             ],
             "defines": [
                 "USE_STDPERIPH_DRIVER",
