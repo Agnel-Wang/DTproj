@@ -81,8 +81,3 @@ short Linear_Fitting(SPI_TypeDef *SPIx)
   else return -1;
 }
 
-/****对数据进行非线性拟合-ANFIS****/
-short ANFIS_Fitting(SPI_TypeDef *SPIx)
-{
-  
-}
