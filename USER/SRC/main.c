@@ -35,8 +35,8 @@ static void TaskStart(void *pdata)
 	OSTaskCreate(TaskCAN1Tx, (void *)0, &CAN1Tx_task_stk[CAN1Tx_TASK_STK_SIZE - 1], CAN1Tx_TASK_PRIO);
 	OSTaskCreate(Task_Lcd, (void *)0, (OS_STK *)&LCD_TASK_STK[LCD_STK_SIZE - 1],LCD_TASK_PRIO);
 	OSTaskCreate(Task_USART1, (void *)0, (OS_STK *)&USART1_TASK_STK[USART1_STK_SIZE - 1],USART1_TASK_PRIO);
-  	OSTaskSuspend(START_TASK_PRIO); //挂起起始任务
-  	OS_EXIT_CRITICAL();             //退出临界区
+  OSTaskSuspend(START_TASK_PRIO); //挂起起始任务
+  OS_EXIT_CRITICAL();             //退出临界区
 }
 
 /*曲线拟合任务*/
@@ -59,7 +59,7 @@ static void TaskCAN1Tx(void *pdata)
 	
 	for(;;)
 	{
-		OSTimeDly(1000);
+		OSTimeDly(50);
 	}
 }
 
@@ -118,4 +118,14 @@ static void Task_USART1(void *pdata)
 		}
 		OSTimeDly(1000);
 	}
+}
+
+//示波器任务
+static void Task_Scope(void *pdata) 
+{
+  while (1) 
+  {
+    VS4Channal_Send(distance1.real,100, 0, 0);
+    OSTimeDly(300);
+  }
 }

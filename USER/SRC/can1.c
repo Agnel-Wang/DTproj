@@ -3,7 +3,6 @@
 const u32 ID_SELF = 0x00010600;
 const u32 ID_BACK = 0x00060101;
 const u32 BROADCAST_ID = 0x00010000;
-const u32 GyroScope_ID_RX = 0x00020101;
 
 void CAN1_Configuration(void)
 {
@@ -42,18 +41,7 @@ void CAN1_Configuration(void)
     Can_FilterInitStrucutre.CAN_FilterActivation=ENABLE;				
 	Can_FilterInitStrucutre.CAN_FilterFIFOAssignment=CAN_Filter_FIFO0;
 	CAN_FilterInit(&Can_FilterInitStrucutre);
-    
-    Can_FilterInitStrucutre.CAN_FilterNumber=1;//陀螺仪
-    Can_FilterInitStrucutre.CAN_FilterMode=CAN_FilterMode_IdMask;//屏蔽位模式
-    Can_FilterInitStrucutre.CAN_FilterScale=CAN_FilterScale_32bit;
-	Can_FilterInitStrucutre.CAN_FilterIdHigh =((GyroScope_ID_RX<<3)&0xffff0000)>>16;
-	Can_FilterInitStrucutre.CAN_FilterMaskIdHigh =(0xffff00<<3)>>16;
-	Can_FilterInitStrucutre.CAN_FilterIdLow =(GyroScope_ID_RX<<3)&0xffff;
-	Can_FilterInitStrucutre.CAN_FilterMaskIdLow =(0xffff00<<3)&0xffff;
-    Can_FilterInitStrucutre.CAN_FilterFIFOAssignment=CAN_Filter_FIFO0;
-    Can_FilterInitStrucutre.CAN_FilterActivation=ENABLE;
-    CAN_FilterInit(&Can_FilterInitStrucutre);
-    
+  
     Can_FilterInitStrucutre.CAN_FilterNumber=2;//广播帧
     Can_FilterInitStrucutre.CAN_FilterMode=CAN_FilterMode_IdMask;//屏蔽位模式
     Can_FilterInitStrucutre.CAN_FilterScale=CAN_FilterScale_32bit;
@@ -65,7 +53,7 @@ void CAN1_Configuration(void)
     Can_FilterInitStrucutre.CAN_FilterActivation=ENABLE;
     CAN_FilterInit(&Can_FilterInitStrucutre);
 
-    MY_NVIC_Init(1,1,CAN1_RX0_IRQn,3);
+    MY_NVIC_Init(2,1,CAN1_RX0_IRQn,3);
     CAN_ITConfig(CAN1,CAN_IT_FMP0,ENABLE);
 }
 
@@ -88,7 +76,7 @@ static void answer_master(const CanRxMsg *rx_message)
 	CAN_Transmit(CAN1,&tx_message);	
 }
 
-void CAN2_RX0_IRQHandler(void)
+void CAN1_RX0_IRQHandler(void)
 {
     CanRxMsg rx_message;
     if(CAN_GetITStatus(CAN1, CAN_IT_FMP0) != RESET)
@@ -143,9 +131,6 @@ void CAN2_RX0_IRQHandler(void)
                     {
                         answer_master(&rx_message);
                     }
-                    break;
-                case GyroScope_ID_RX://陀螺仪
-
                     break;
                 default:;
             }

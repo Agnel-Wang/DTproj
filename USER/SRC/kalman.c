@@ -67,7 +67,8 @@ short Linear_Fitting(SPI_TypeDef *SPIx)
   {
     distance1.kalmaninput=getAveragingData(&kalman_data1);
     distance1.temp=kalman_filter(&kalman_fliter1,distance1.kalmaninput);
-    distance1.real=DT35Coe_1.k1*distance1.temp+DT35Coe_1.b1;
+//    distance1.real=DT35Coe_1.k1*distance1.temp+DT35Coe_1.b1;
+    distance1.real = evalfis(distance1.temp);
     return distance1.real;
   }
   else if(SPIx==SPI2)
@@ -78,4 +79,10 @@ short Linear_Fitting(SPI_TypeDef *SPIx)
     return distance2.real;
   }
   else return -1;
+}
+
+/****对数据进行非线性拟合-ANFIS****/
+short ANFIS_Fitting(SPI_TypeDef *SPIx)
+{
+  
 }

@@ -7,6 +7,7 @@
 #include "timer.h"
 #include "usart2.h"
 #include "usart1.h"
+#include "visual_scope.h"
 
 //STARTÈÎÎñ
 #define START_TASK_PRIO            5
@@ -37,6 +38,12 @@ static void Task_Lcd(void *pdata);
 #define USART1_STK_SIZE     	   512
 __align(8) OS_STK USART1_TASK_STK[USART1_STK_SIZE];
 static void Task_USART1(void *pdata);
+
+//ÐéÄâÊ¾²¨Æ÷
+#define SCOPE_TASK_PRIO			55
+#define SCOPE_STK_SIZE			128
+__align(8) OS_STK SCOPE_TASK_STK[SCOPE_STK_SIZE];
+static void Task_Scope(void *pdata);
 
 OS_EVENT *RUN;
 

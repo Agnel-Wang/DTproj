@@ -54,7 +54,7 @@ void USART2_IRQHandler(void)
         {
           usart.RxBuffer_USART2[USART2_RX_STA & 0X3F] = temp;
           USART2_RX_STA++;
-          if ((USART2_RX_STA & 0X3F) > 4)  USART2_RX_STA = 0;
+          if ((USART2_RX_STA & 0X3F) > 40)  USART2_RX_STA = 0;
         }
       }
     }
@@ -101,7 +101,7 @@ void UsartLCDshow(void)
 	usart.TxBuffer_USART2[i++]=0x01;
 
 	usart.TxBuffer_USART2[i++]=0xff;
-	usart.TxBuffer_USART2[i++]=0xfc;
+	usart.TxBuffer_USART2[i++]=0xfc;             
 	usart.TxBuffer_USART2[i++]=0xff;
 	usart.TxBuffer_USART2[i++]=0xff;
 
@@ -156,70 +156,6 @@ void UsartLCDshow(void)
   usart.TxBuffer_USART2[i++]=0x06;
   usart.TxBuffer_USART2[i++]=0x00;
   sprintf(str_temp,"%4d",distance2.real);
-  usart.TxBuffer_USART2[i++]=strlen(str_temp);
-  strcpy((char*)(&usart.TxBuffer_USART2[i]),str_temp);
-  i += strlen(str_temp);
-
-  usart.TxBuffer_USART2[i++]=0x00;
-  usart.TxBuffer_USART2[i++]=0x07;
-  usart.TxBuffer_USART2[i++]=0x00;
-  sprintf(str_temp,"%1.4f",DT35Coe_1.k1);
-  usart.TxBuffer_USART2[i++]=strlen(str_temp);
-  strcpy((char*)(&usart.TxBuffer_USART2[i]),str_temp);
-  i += strlen(str_temp);
-
-  usart.TxBuffer_USART2[i++]=0x00;
-  usart.TxBuffer_USART2[i++]=0x08;
-  usart.TxBuffer_USART2[i++]=0x00;
-  sprintf(str_temp,"%1.4f",DT35Coe_2.k1);
-  usart.TxBuffer_USART2[i++]=strlen(str_temp);
-  strcpy((char*)(&usart.TxBuffer_USART2[i]),str_temp);
-  i += strlen(str_temp);
-
-  usart.TxBuffer_USART2[i++]=0x00;
-  usart.TxBuffer_USART2[i++]=0x09;
-  usart.TxBuffer_USART2[i++]=0x00;
-  sprintf(str_temp,"%1.4f",DT35Coe_1.b1);
-  usart.TxBuffer_USART2[i++]=strlen(str_temp);
-  strcpy((char*)(&usart.TxBuffer_USART2[i]),str_temp);
-  i += strlen(str_temp);
-
-  usart.TxBuffer_USART2[i++]=0x00;
-  usart.TxBuffer_USART2[i++]=0x0A;
-  usart.TxBuffer_USART2[i++]=0x00;
-  sprintf(str_temp,"%1.4f",DT35Coe_2.b1);
-  usart.TxBuffer_USART2[i++]=strlen(str_temp);
-  strcpy((char*)(&usart.TxBuffer_USART2[i]),str_temp);
-  i += strlen(str_temp);
-
-  usart.TxBuffer_USART2[i++]=0x00;
-  usart.TxBuffer_USART2[i++]=0x0B;
-  usart.TxBuffer_USART2[i++]=0x00;
-  sprintf(str_temp,"%1.4f",DT35Coe_1.k2);
-  usart.TxBuffer_USART2[i++]=strlen(str_temp);
-  strcpy((char*)(&usart.TxBuffer_USART2[i]),str_temp);
-  i += strlen(str_temp);
-
-  usart.TxBuffer_USART2[i++]=0x00;
-  usart.TxBuffer_USART2[i++]=0x0C;
-  usart.TxBuffer_USART2[i++]=0x00;
-  sprintf(str_temp,"%1.4f",DT35Coe_2.k2);
-  usart.TxBuffer_USART2[i++]=strlen(str_temp);
-  strcpy((char*)(&usart.TxBuffer_USART2[i]),str_temp);
-  i += strlen(str_temp);
-
-  usart.TxBuffer_USART2[i++]=0x00;
-  usart.TxBuffer_USART2[i++]=0x0D;
-  usart.TxBuffer_USART2[i++]=0x00;
-  sprintf(str_temp,"%1.4f",DT35Coe_1.b2);
-  usart.TxBuffer_USART2[i++]=strlen(str_temp);
-  strcpy((char*)(&usart.TxBuffer_USART2[i]),str_temp);
-  i += strlen(str_temp);
-
-  usart.TxBuffer_USART2[i++]=0x00;
-  usart.TxBuffer_USART2[i++]=0x0E;
-  usart.TxBuffer_USART2[i++]=0x00;
-  sprintf(str_temp,"%1.4f",DT35Coe_2.b2);
   usart.TxBuffer_USART2[i++]=strlen(str_temp);
   strcpy((char*)(&usart.TxBuffer_USART2[i]),str_temp);
   i += strlen(str_temp);

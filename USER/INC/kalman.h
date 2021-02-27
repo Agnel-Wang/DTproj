@@ -2,6 +2,7 @@
 #define _KALMAN_H
 
 #include "SPI.h"
+#include "anfis.h"
 
 //kalman数据存储结构体
 typedef struct 
@@ -25,7 +26,7 @@ typedef struct
 	double R;     					//测量的噪声最小协方差
 	double x_last,x_mid,x_now;  	//上次的最优值，本次测量值
 	double p_last,p_mid,p_now;  	//上次协方差，本次预测协方差
-	double kg;            			//增益0	
+	double kg;            			//增益
 	double A;             			//x(n)=Ax(n-1)+u(n)  系统转移矩阵
 	double B;						//控制矩阵 
 	double H;             			//z(n)=Hx(n)+v(n),z(n)为采样实测值，x（n）为预测值，H为观测转移矩阵	

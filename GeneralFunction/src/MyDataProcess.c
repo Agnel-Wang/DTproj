@@ -1,4 +1,4 @@
-/** 
+** 
   * @brief  将float型数据有精度丢失地截成2个字节，放在buff中
  
 void EncodeFloatDataLost(float* f, unsigned char* buff)

@@ -3,6 +3,7 @@
     "files.associations": {
         "string": "c",
         "xstring": "c",
-        "xutility": "c"
+        "xutility": "c",
+        "cmath": "c"
     }
 }

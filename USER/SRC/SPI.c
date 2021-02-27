@@ -19,7 +19,7 @@ void SPI1_Configuration(void)
   tempreg |= 1<<9;//软件nss管理
   tempreg |= 1<<8;//内部从器件选择
   tempreg |= 1<<2;//SPI主机
-  //ad8320的时钟频率为0.024-2.4MHz；SPI1属于APB2的外设，时钟频率为72Mhz
+  //ad8320的时钟频率为0.024-2.4MHz；SPI1属于APB2的外设，时钟频率为84Mhz
   tempreg |= 5<<3;//Fsck=Fpclk1/64
   tempreg |= 1<<6;//使能SPI1
   SPI1->CR1=tempreg;//设置CR1=0x0B6C
@@ -44,7 +44,7 @@ void SPI2_Configuration(void)
   tempreg |= 1<<9;//软件nss管理
   tempreg |= 1<<8;//内部从器件选择
   tempreg |= 1<<2;//SPI主机
-  //ad8320的时钟频率为0.024-2.4MHz；SPI2属于APB1的外设，时钟频率为36Mhz
+  //ad8320的时钟频率为0.024-2.4MHz；SPI2属于APB1的外设，时钟频率为42Mhz
   tempreg |= 4<<3;//Fsck=Fpclk1/32
   tempreg |= 1<<6;//SPI启动
   SPI2->CR1=tempreg;//设置CR1=0x0B6C

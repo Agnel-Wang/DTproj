@@ -4,7 +4,7 @@
 #include "can1.h"
 #include "kalman.h"
 #include "sys.h"
-
+extern float time_my;
 void TIM3_Configuration(void);
 
 #endif
