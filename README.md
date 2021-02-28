@@ -46,6 +46,15 @@
 |USART1_DMA|6|1|标定及示波器|
 |USART2_DMA|7|1|串口屏发送|
 
+## Matlab ANFIS工具箱使用方法
+
+1. m文件中将dt数据及实际距离以[n, 2]的矩阵格式保存在工作区内 
+2. 命令行窗口输入anfisedit  
+3. form选择worksp.， 点击Load Data， 输入刚才保存数据的变量名
+4. 选择Grid partition， 点击Generate FIS, 输入成员函数数量，如5，类型为高斯函数，输出成员函数类型为线性 
+5. 输入迭代次数Epochs， 100， 训练
+6. File文件里面导出为fis文件，后用matlab打开即可
+
 ## 积极工作记录
 
 ### 2020.08.11
